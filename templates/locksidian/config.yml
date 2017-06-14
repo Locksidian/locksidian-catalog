@@ -1,0 +1,9 @@
+name: Locksidian
+description: |
+  The one vault your data really need.
+version: latest
+category: Blockchain
+maintainer: "Aurelien Duval <aurelien.duval6@gmail.com>"
+minimum_rancher_version: v0.59.0
+license: 
+projectURL: http://locksidian.fries.io/locksidian/

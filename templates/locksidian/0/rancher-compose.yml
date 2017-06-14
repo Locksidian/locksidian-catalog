@@ -1,0 +1,13 @@
+.catalog:
+  name: "Locksidian"
+  description: "The one vault your data really need."
+  version: "latest"
+  uuid: locksidian-0
+  questions:
+    - variable: "EXTERNAL_NODE"
+      label: "Locksidian external node address"
+      type: "string"
+      required: false
+locksidian:
+	scale: 1
+
