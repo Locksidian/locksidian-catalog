@@ -1,5 +1,5 @@
 locksidian:
-  image: registry.gitlab.com/locksidian/locksidian/image
+  image: registry.gitlab.com/locksidian/locksidian:master
   working_dir: /app
   command: /app/locksidian --identity-new 4096 && /app/locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-127.0.0.1:8080}
 
