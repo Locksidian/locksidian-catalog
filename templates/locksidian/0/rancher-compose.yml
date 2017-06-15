@@ -9,5 +9,5 @@
       type: "string"
       required: false
 locksidian:
-	scale: 1
+  scale: 1
 
