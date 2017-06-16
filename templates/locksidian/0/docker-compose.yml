@@ -6,5 +6,5 @@ services:
   locksidian-slave:
     image: registry.gitlab.com/locksidian/locksidian:master
     working_dir: /app
-    command: /app/locksidian --identity $(/app/locksidian --identity-new 4096) && /app/locksidian -d 0.0.0.0:8080 -e http://locksidian-master:8080
+    command: /app/locksidian --identity $$(/app/locksidian --identity-new 4096) && /app/locksidian -d 0.0.0.0:8080 -e http://locksidian-master:8080
 
