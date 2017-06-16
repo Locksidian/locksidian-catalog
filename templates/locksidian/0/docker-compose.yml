@@ -1,7 +1,8 @@
 locksidian-master:
   image: registry.gitlab.com/locksidian/locksidian:master
   working_dir: /app
-  - ./locksidian
+  entrypoint:
+    - ./locksidian
     - --identity
     - $$(./locksidian --identity-new 4096)
     - -d
