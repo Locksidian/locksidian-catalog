@@ -3,7 +3,10 @@
   description: "The one vault your data really need."
   version: "latest"
   uuid: locksidian-0
-locksidian-master:
-  scale: 1
-locksidian-slave:
-  scale: 15
+  questions:
+    - variable: "EXTERNAL_NODE"
+      label: "Locksidian external node address"
+      type: "string"
+      required: false
+locksidian:
+  scale: 16

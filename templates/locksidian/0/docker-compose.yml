@@ -1,21 +1,5 @@
-locksidian-master:
-  image: registry.gitlab.com/locksidian/locksidian:master
+locksidian:
+  image: registry.gitlab.com/locksidian/locksidian:dev
   working_dir: /app
-  entrypoint:
-    - ./locksidian
-    - --identity
-    - $$(./locksidian --identity-new 4096)
-    - -d
-    - 0.0.0.0:8080
-locksidian-slave:
-  image: registry.gitlab.com/locksidian/locksidian:master
-  working_dir: /app
-  entrypoint:
-    - ./locksidian
-    - --identity
-    - $$(./locksidian --identity-new 4096)
-    - -d
-    - 0.0.0.0:8080
-    - -e 
-    - http://locksidian-master:8080
+  entrypoint: ./locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-http://locksidian:8080}
 
