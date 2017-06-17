@@ -1,5 +1,6 @@
 locksidian:
   image: registry.gitlab.com/locksidian/locksidian:dev
+  environment:
+    - HOSTNAME
   working_dir: /app
-  entrypoint: ./locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-http://locksidian:8080}
-
+  entrypoint:  /bin/bash -c "./locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-$$HOSTNAME:8080}"
