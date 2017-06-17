@@ -1,6 +1,15 @@
-locksidian:
+locksidian-primary:
   image: registry.gitlab.com/locksidian/locksidian:dev
-  environment:
-    - HOSTNAME
+  ports:
+    - 8080:8080
   working_dir: /app
-  entrypoint:  /bin/bash -c "./locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-$$HOSTNAME:8080}"
+  entrypoint:  /bin/bash -c "./locksidian -d 0.0.0.0:8080"
+
+locksidian-node:
+  image: registry.gitlab.com/locksidian/locksidian:dev
+  ports:
+    - 8080
+  links:
+    - locksidian-primary
+  working_dir: /app
+  entrypoint:  /bin/bash -c "./locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-locksidian-primary:8080}"

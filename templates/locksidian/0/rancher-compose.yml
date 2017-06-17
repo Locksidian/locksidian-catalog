@@ -8,5 +8,7 @@
       label: "Locksidian external node address"
       type: "string"
       required: false
-locksidian:
-  scale: 16
+locksidian-primary:
+  scale: 1
+locksidian-node:
+  scale: 15
