@@ -3,7 +3,7 @@ locksidian-primary:
   ports:
     - 8080:8080
   working_dir: /app
-  entrypoint:  /bin/bash -c "/app/locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-127.0.0.1:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-127.0.0.1:8080}"
+  entrypoint: /bin/bash -c "/app/locksidian -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-78.193.22.129:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:8080 -e $${EXTERNAL_NODE:-78.193.22.129:8080}"
 
 locksidian-node-alpha:
   image: registry.gitlab.com/locksidian/locksidian:dev
@@ -12,7 +12,7 @@ locksidian-node-alpha:
   links:
     - locksidian-primary
   working_dir: /app
-  entrypoint:  /bin/bash -c "/app/locksidian -d 0.0.0.0:64444 -e $${EXTERNAL_NODE:-locksidian-primary:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64444 $${EXTERNAL_NODE:-locksidian-primary:8080}"
+  entrypoint: /bin/bash -c "/app/locksidian -d 0.0.0.0:64444 -e $${EXTERNAL_NODE:-78.193.22.129:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64444 $${EXTERNAL_NODE:-78.193.22.129:8080}"
 
 locksidian-node-beta:
   image: registry.gitlab.com/locksidian/locksidian:dev
@@ -21,7 +21,7 @@ locksidian-node-beta:
   links:
     - locksidian-primary
   working_dir: /app
-  entrypoint:  /bin/bash -c "/app/locksidian -d 0.0.0.0:64445 -e $${EXTERNAL_NODE:-locksidian-primary:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64445 $${EXTERNAL_NODE:-locksidian-primary:8080}"
+  entrypoint: /bin/bash -c "/app/locksidian -d 0.0.0.0:64445 -e $${EXTERNAL_NODE:-78.193.22.129:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64445 $${EXTERNAL_NODE:-78.193.22.129:8080}"
 locksidian-node-gamma:
   image: registry.gitlab.com/locksidian/locksidian:dev
   ports:
@@ -29,7 +29,7 @@ locksidian-node-gamma:
   links:
     - locksidian-primary
   working_dir: /app
-  entrypoint:  /bin/bash -c "/app/locksidian -d 0.0.0.0:64446 -e $${EXTERNAL_NODE:-locksidian-primary:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64446 $${EXTERNAL_NODE:-locksidian-primary:8080}"
+  entrypoint:  /bin/bash -c "/app/locksidian -d 0.0.0.0:64446 -e $${EXTERNAL_NODE:-78.193.22.129:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64446 $${EXTERNAL_NODE:-78.193.22.129:8080}"
 
 locksidian-node-epsilon:
   image: registry.gitlab.com/locksidian/locksidian:dev
@@ -38,4 +38,4 @@ locksidian-node-epsilon:
   links:
     - locksidian-primary
   working_dir: /app
-  entrypoint:  /bin/bash -c "/app/locksidian -d 0.0.0.0:64447 -e $${EXTERNAL_NODE:-locksidian-primary:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64447 $${EXTERNAL_NODE:-locksidian-primary:8080}"
+  entrypoint: /bin/bash -c "/app/locksidian -d 0.0.0.0:64447 -e $${EXTERNAL_NODE:-78.193.22.129:8080} || /app/locksidian --identity $(/app/locksidian --identity-new 4096) -d 0.0.0.0:64447 $${EXTERNAL_NODE:-78.193.22.129:8080}"
