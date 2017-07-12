@@ -10,5 +10,11 @@
       required: false
 locksidian-primary:
   scale: 1
-locksidian-node:
-  scale: 15
+locksidian-node-alpha:
+  scale: 1
+locksidian-node-beta:
+  scale: 1
+locksidian-node-gamma:
+  scale: 1
+locksidian-node-epsilon:
+  scale: 1
