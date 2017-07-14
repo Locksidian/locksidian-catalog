@@ -2,6 +2,7 @@ locksidian-primary:
   image: registry.gitlab.com/locksidian/locksidian:dev
   environment:
     - EXTERNAL_NODE=${EXTERNAL_NODE}
+  tty: true
   ports:
     - 8080:8080
   working_dir: /app
@@ -11,6 +12,7 @@ locksidian-node-alpha:
   image: registry.gitlab.com/locksidian/locksidian:dev
   environment:
     - EXTERNAL_NODE=${EXTERNAL_NODE}
+  tty: true
   ports:
     - 64444:64444
   links:
@@ -22,16 +24,19 @@ locksidian-node-beta:
   image: registry.gitlab.com/locksidian/locksidian:dev
   environment:
     - EXTERNAL_NODE=${EXTERNAL_NODE}
+  tty: true
   ports:
     - 64445:64445
   links:
     - locksidian-primary
   working_dir: /app
   entrypoint: /bin/bash -c "/app/locksidian -d 0.0.0.0:64445 -e $${EXTERNAL_NODE:-locksidian-primary:8080} || /app/locksidian --identity $$(/app/locksidian --identity-new 4096) -d 0.0.0.0:64445 $${EXTERNAL_NODE:-locksidian-primary:8080}"
+
 locksidian-node-gamma:
   image: registry.gitlab.com/locksidian/locksidian:dev
   environment:
     - EXTERNAL_NODE=${EXTERNAL_NODE}
+  tty: true
   ports:
     - 64446:64446
   links:
@@ -43,6 +48,7 @@ locksidian-node-epsilon:
   image: registry.gitlab.com/locksidian/locksidian:dev
   environment:
     - EXTERNAL_NODE=${EXTERNAL_NODE}
+  tty: true
   ports:
     - 64447:64447
   links:
